@@ -1,40 +1,1699 @@
-const data = [
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-  [
-    '🏕️ MIDAS — ESTRUTURAS',
-    'Modelagem',
-    [
-      'Modelar Caverna do Homem das Cavernas',
-      'Modelar Caverna do Atirador de Pedras',
-      'Modelar Caverna do Lançador de Dardos',
-      'Modelar Cavalheiro de Javali',
-      'Modelar Caverna do Lançador de Pteranodonte'
-    ]
-  ],
+<head>
 
-  [
-    '⚔️ MIDAS — ARMAS',
-    'Aguardando referências',
-    [
-      'Modelar as armas assim que o cliente enviar as referências'
-    ]
-  ]
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-];
+<title>Midas — Central de Produção</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap');
+
+:root{
+  --purple:#6c32ad;
+  --deep:#3e1d66;
+  --lilac:#e9dbff;
+  --soft:#fdfaff;
+  --ink:#3c2258;
+
+  --model:#9b5dcc;
+  --texture:#d77bba;
+  --animals:#67a66d;
+  --commercial:#d59a4a;
+
+  --line:#dfd0eb;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+
+  color:var(--ink);
+
+  font-family:'DM Sans',sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 5% 0%,
+      #f1e6ff 0,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 10%,
+      #eadcf9 0,
+      transparent 24%
+    ),
+    #faf8fd;
+}
+
+.page{
+  width:min(1150px,calc(100% - 30px));
+  margin:auto;
+  padding:28px 0 50px;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero{
+
+  position:relative;
+  overflow:hidden;
+
+  min-height:220px;
+
+  padding:36px 320px 30px 38px;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #f8efff,
+      #e2cdf8
+    );
+
+  border:2px solid #d9c2ef;
+
+  box-shadow:
+    0 15px 35px #4c226c18;
+}
+
+.hero::before{
+
+  content:'✦  MIDAS  ✦';
+
+  position:absolute;
+
+  right:35px;
+  top:28px;
+
+  color:#a56acb;
+
+  font-family:'Patrick Hand',cursive;
+
+  font-size:26px;
+
+  letter-spacing:4px;
+
+  transform:rotate(-5deg);
+}
+
+.hero h1{
+
+  margin:0;
+
+  color:var(--deep);
+
+  font-family:'Patrick Hand',cursive;
+
+  font-size:
+    clamp(
+      3.4rem,
+      8vw,
+      6rem
+    );
+
+  font-weight:400;
+
+  line-height:.8;
+}
+
+.hero p{
+
+  margin:18px 0 0;
+
+  max-width:580px;
+
+  color:#704d93;
+
+  line-height:1.55;
+
+  font-size:.98rem;
+}
+
+.badge{
+
+  display:inline-block;
+
+  margin-top:20px;
+
+  padding:8px 15px;
+
+  border-radius:999px;
+
+  background:#ffffffb8;
+
+  color:#62348e;
+
+  font-size:.76rem;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.05em;
+}
+
+
+/* ==================================================
+   DECORAÇÃO
+================================================== */
+
+.midas-icon{
+
+  position:absolute;
+
+  right:48px;
+  bottom:20px;
+
+  width:190px;
+  height:125px;
+
+  border-radius:
+    45% 55% 48% 52% /
+    55% 45% 55% 45%;
+
+  background:
+
+    radial-gradient(
+      ellipse at 50% 40%,
+      #d5a16d 0 27%,
+      transparent 28%
+    ),
+
+    radial-gradient(
+      ellipse at 30% 30%,
+      #8d5a35 0 22%,
+      transparent 23%
+    ),
+
+    radial-gradient(
+      ellipse at 70% 30%,
+      #8d5a35 0 22%,
+      transparent 23%
+    );
+
+  opacity:.9;
+
+  filter:
+    drop-shadow(
+      0 9px 7px #3d1b5b28
+    );
+}
+
+.midas-icon::after{
+
+  content:'MIDAS';
+
+  position:absolute;
+
+  right:-8px;
+  bottom:4px;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:white;
+
+  color:#6c32ad;
+
+  font-size:.7rem;
+
+  font-weight:700;
+}
+
+
+/* ==================================================
+   GRID
+================================================== */
+
+.layout{
+
+  display:grid;
+
+  grid-template-columns:
+    1.45fr .8fr;
+
+  gap:22px;
+
+  margin-top:22px;
+}
+
+.card{
+
+  padding:24px;
+
+  border-radius:22px;
+
+  background:#fff;
+
+  box-shadow:
+    0 8px 22px #48206f10;
+}
+
+.main-card{
+
+  grid-row:span 3;
+}
+
+.card h2{
+
+  margin:0;
+
+  color:#582487;
+
+  font-family:'Patrick Hand',cursive;
+
+  font-size:2.35rem;
+
+  font-weight:400;
+
+  line-height:.9;
+}
+
+.sub{
+
+  margin:8px 0 20px;
+
+  color:#896ba3;
+
+  font-size:.82rem;
+}
+
+
+/* ==================================================
+   SECTION
+================================================== */
+
+.section{
+
+  margin-bottom:18px;
+
+  padding:18px 18px 15px 21px;
+
+  border-left:8px solid var(--model);
+
+  border-radius:
+    0 15px 15px 0;
+
+  background:#fbf8ff;
+}
+
+.section.texture{
+
+  border-color:var(--texture);
+
+  background:#fff9fc;
+}
+
+.section.animals{
+
+  border-color:var(--animals);
+
+  background:#f9fff9;
+}
+
+.section.commercial{
+
+  border-color:var(--commercial);
+
+  background:#fffcf7;
+}
+
+.section.waiting{
+
+  border-color:#9b9b9b;
+
+  background:#f7f7f7;
+}
+
+.section-title{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+}
+
+.section-title strong{
+
+  color:#512484;
+
+  font-family:'Patrick Hand',cursive;
+
+  font-size:1.55rem;
+
+  font-weight:400;
+}
+
+.category{
+
+  padding:4px 9px;
+
+  border-radius:999px;
+
+  background:#eee5f7;
+
+  color:#76538f;
+
+  font-size:.66rem;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+}
+
+
+/* ==================================================
+   TASK
+================================================== */
+
+.task{
+
+  display:grid;
+
+  grid-template-columns:20px 1fr;
+
+  gap:9px;
+
+  align-items:start;
+
+  padding:7px 0;
+
+  font-size:.88rem;
+
+  line-height:1.4;
+}
+
+.task input{
+
+  appearance:none;
+
+  width:18px;
+  height:18px;
+
+  margin:1px 0 0;
+
+  border:
+    2px solid #a178bf;
+
+  border-radius:5px;
+
+  background:white;
+
+  cursor:pointer;
+}
+
+.task input:checked{
+
+  background:var(--purple);
+
+  border-color:var(--purple);
+}
+
+.task input:checked::after{
+
+  content:'✓';
+
+  display:block;
+
+  color:white;
+
+  text-align:center;
+
+  font-size:12px;
+
+  line-height:14px;
+
+  font-weight:700;
+}
+
+.task:has(input:checked) span{
+
+  color:#aa91b8;
+
+  text-decoration:line-through;
+}
+
+
+/* ==================================================
+   WAITING TASK
+================================================== */
+
+.waiting-task{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:10px 0;
+
+  color:#777;
+
+  font-size:.86rem;
+}
+
+.waiting-badge{
+
+  flex-shrink:0;
+
+  padding:5px 9px;
+
+  border-radius:999px;
+
+  background:#e6e6e6;
+
+  color:#666;
+
+  font-size:.62rem;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+}
+
+
+/* ==================================================
+   META
+================================================== */
+
+.goal{
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8eeff,
+      #e9d8fc
+    );
+}
+
+.goal h2{
+
+  font-size:2.5rem;
+}
+
+.goal p{
+
+  line-height:1.55;
+
+  font-size:.9rem;
+}
+
+.priority{
+
+  margin-top:14px;
+
+  padding:13px;
+
+  border-radius:12px;
+
+  background:#ffffff91;
+
+  border:1px solid #dac6ec;
+
+  font-size:.82rem;
+
+  line-height:1.5;
+}
+
+.priority strong{
+
+  color:#6c32ad;
+}
+
+
+/* ==================================================
+   STATS
+================================================== */
+
+.stats{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:8px;
+
+  margin-top:16px;
+}
+
+.stat{
+
+  padding:12px 8px;
+
+  text-align:center;
+
+  border-radius:12px;
+
+  background:#fff;
+
+  border:1px solid #e6d9ef;
+}
+
+.stat strong{
+
+  display:block;
+
+  color:#582487;
+
+  font-size:1.25rem;
+}
+
+.stat span{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:#8c759d;
+
+  font-size:.65rem;
+
+  text-transform:uppercase;
+}
+
+
+/* ==================================================
+   LEMBRETES
+================================================== */
+
+.targets{
+
+  background:var(--deep);
+
+  color:white;
+}
+
+.targets h2{
+
+  color:white;
+}
+
+.targets .sub{
+
+  color:#d9c1ed;
+}
+
+.target{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-top:10px;
+
+  padding-bottom:9px;
+
+  border-bottom:
+    1px dashed
+    #ffffff44;
+}
+
+.target span{
+
+  color:#d9a9f5;
+}
+
+.target input{
+
+  width:100%;
+
+  border:0;
+
+  outline:0;
+
+  background:transparent;
+
+  color:white;
+
+  font-family:'DM Sans';
+}
+
+.target input::placeholder{
+
+  color:#c9afd9;
+}
+
+.add{
+
+  margin-top:13px;
+
+  padding:8px 12px;
+
+  border:0;
+
+  border-radius:9px;
+
+  background:#b06bd1;
+
+  color:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+
+/* ==================================================
+   PROGRESS
+================================================== */
+
+.progress-box{
+
+  margin-top:22px;
+}
+
+.progress-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-bottom:7px;
+
+  color:#765d8f;
+
+  font-size:.8rem;
+
+  font-weight:700;
+}
+
+.progress{
+
+  height:12px;
+
+  overflow:hidden;
+
+  border-radius:999px;
+
+  background:#eadcf5;
+}
+
+.progress-bar{
+
+  height:100%;
+
+  width:0;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #743db4,
+      #c58ce8
+    );
+
+  transition:
+    width .3s ease;
+}
+
+.progress-message{
+
+  margin-top:8px;
+
+  color:#9279a7;
+
+  font-size:.72rem;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer{
+
+  margin-top:22px;
+
+  text-align:center;
+
+  color:#896fa0;
+
+  font-size:.78rem;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:780px){
+
+  .page{
+
+    width:
+      min(
+        calc(100% - 20px),
+        620px
+      );
+
+    padding-top:12px;
+  }
+
+  .hero{
+
+    min-height:245px;
+
+    padding:
+      30px
+      22px
+      130px;
+  }
+
+  .hero h1{
+
+    font-size:4.2rem;
+  }
+
+  .midas-icon{
+
+    right:25px;
+
+    width:145px;
+    height:95px;
+  }
+
+  .layout{
+
+    grid-template-columns:1fr;
+  }
+
+  .main-card{
+
+    grid-row:auto;
+  }
+
+  .stats{
+
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:450px){
+
+  .stats{
+
+    grid-template-columns:1fr;
+  }
+
+  .section-title{
+
+    align-items:flex-start;
+
+    flex-direction:column;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<main class="page">
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<header class="hero">
+
+  <h1>Midas</h1>
+
+  <p>
+    Central de produção do projeto:
+    modelagem, texturização, animais,
+    aprovação e orçamento.
+  </p>
+
+  <span
+    class="badge"
+    id="date">
+  </span>
+
+  <div
+    class="midas-icon"
+    aria-hidden="true">
+  </div>
+
+</header>
+
+
+<section class="layout">
+
+
+<!-- ==================================================
+     MISSÕES
+================================================== -->
+
+<article class="card main-card">
+
+  <h2>
+    Missões do Midas ✦
+  </h2>
+
+  <p class="sub">
+    Checklist geral de produção
+  </p>
+
+
+  <div id="sections"></div>
+
+
+  <!-- PROGRESS -->
+
+  <div class="progress-box">
+
+    <div class="progress-header">
+
+      <span>
+        Progresso das tarefas
+      </span>
+
+      <span id="percent">
+        0%
+      </span>
+
+    </div>
+
+
+    <div class="progress">
+
+      <div
+        class="progress-bar"
+        id="bar">
+      </div>
+
+    </div>
+
+
+    <div
+      class="progress-message"
+      id="progressMessage">
+
+      Comece pela primeira estrutura.
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- ==================================================
+     META
+================================================== -->
 
 <article class="card goal">
 
-  <h2>Meta do Midas ♡</h2>
+  <h2>
+    Meta do Midas ♡
+  </h2>
 
   <p>
-    Finalizar a modelagem das 5 estruturas da referência
-    e deixar as armas preparadas para iniciar assim que
-    o cliente enviar os modelos de referência.
+
+    Avançar a produção das estruturas,
+    preparar a etapa de texturização
+    e organizar a aprovação do gato
+    antes de fechar o orçamento dos
+    animais.
+
   </p>
 
-  <p>
-    <strong>Prioridade:</strong> estruturas primeiro.
-    Armas aguardando referências do cliente.
-  </p>
+
+  <div class="priority">
+
+    <strong>
+      Ordem crítica:
+    </strong>
+
+    <br>
+
+    Texturizar o gato cartoon →
+    enviar para aprovação →
+    montar orçamento do GATO e dos
+    ANIMAIS →
+    iniciar os 107 animais com os meninos.
+
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <strong id="total">
+        0
+      </strong>
+
+      <span>
+        tarefas
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong id="done">
+        0
+      </strong>
+
+      <span>
+        feitas
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong id="waiting">
+        0
+      </strong>
+
+      <span>
+        aguardando
+      </span>
+
+    </div>
+
+  </div>
 
 </article>
+
+
+<!-- ==================================================
+     LEMBRETES
+================================================== -->
+
+<article class="card targets">
+
+  <h2>
+    Lembretes
+  </h2>
+
+  <p class="sub">
+    Pontos importantes do projeto
+  </p>
+
+  <div id="targets"></div>
+
+  <button
+    type="button"
+    class="add"
+    id="add">
+
+    + lembrete
+
+  </button>
+
+</article>
+
+
+</section>
+
+
+<p class="footer">
+
+  Midas • Tudo salvo automaticamente
+  neste navegador ✦
+
+</p>
+
+
+</main>
+
+
+<script>
+
+
+/* ==================================================
+   STORAGE
+================================================== */
+
+const STORAGE_KEY =
+  'midas-central-producao-v1';
+
+
+let saved =
+  JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+    || '{}'
+  );
+
+
+let checked =
+  saved.checked || {};
+
+
+/* ==================================================
+   DADOS
+================================================== */
+
+const sections = [
+
+  {
+    id:'estruturas',
+
+    title:'🏕️ ESTRUTURAS',
+
+    category:'Modelagem',
+
+    type:'model',
+
+    tasks:[
+
+      'Modelar Caverna do Homem das Cavernas',
+
+      'Modelar Caverna do Atirador de Pedras',
+
+      'Modelar Caverna do Lançador de Dardos',
+
+      'Modelar Cavalheiro de Javali',
+
+      'Modelar Caverna do Lançador de Pteranodonte'
+
+    ]
+
+  },
+
+
+  {
+    id:'armas',
+
+    title:'⚔️ ARMAS',
+
+    category:'Cliente',
+
+    type:'waiting',
+
+    waiting:true,
+
+    tasks:[
+
+      'Modelar as armas assim que o cliente enviar as referências'
+
+    ]
+
+  },
+
+
+  {
+    id:'texturizacao',
+
+    title:'🎨 TEXTURIZAÇÃO',
+
+    category:'Texturização',
+
+    type:'texture',
+
+    tasks:[
+
+      'Phey — texturizar gema; studs',
+
+      'Phey — texturizar picareta; studs',
+
+      'Gato — texturizar gato cartoon'
+
+    ]
+
+  },
+
+
+  {
+    id:'mercado',
+
+    title:'🥩 MERCADO',
+
+    category:'Produção',
+
+    type:'commercial',
+
+    tasks:[
+
+      'Modelar a maioria dos assets do mercado'
+
+    ]
+
+  },
+
+
+  {
+    id:'animais',
+
+    title:'🐾 ANIMAIS',
+
+    category:'Produção',
+
+    type:'animals',
+
+    tasks:[
+
+      'Montar orçamento do GATO e dos ANIMAIS e enviar — somente depois da aprovação do gato',
+
+      'Começar os 107 animais com os meninos'
+
+    ]
+
+  }
+
+];
+
+
+/* ==================================================
+   RENDER
+================================================== */
+
+const container =
+  document.getElementById(
+    'sections'
+  );
+
+
+sections.forEach(section => {
+
+  const box =
+    document.createElement(
+      'div'
+    );
+
+
+  box.className =
+    'section ' +
+    (
+      section.type === 'texture'
+        ? 'texture'
+        : ''
+    ) +
+    (
+      section.type === 'animals'
+        ? ' animals'
+        : ''
+    ) +
+    (
+      section.type === 'commercial'
+        ? ' commercial'
+        : ''
+    ) +
+    (
+      section.type === 'waiting'
+        ? ' waiting'
+        : ''
+    );
+
+
+  const header =
+    document.createElement(
+      'div'
+    );
+
+
+  header.className =
+    'section-title';
+
+
+  header.innerHTML = `
+
+    <strong>
+      ${section.title}
+    </strong>
+
+    <span class="category">
+      ${section.category}
+    </span>
+
+  `;
+
+
+  box.appendChild(header);
+
+
+  section.tasks.forEach(
+    (task,index) => {
+
+
+      const taskId =
+        section.id +
+        '-' +
+        index;
+
+
+      /* -------------------------------------------
+         TAREFA BLOQUEADA
+      ------------------------------------------- */
+
+      if(section.waiting){
+
+        const waiting =
+          document.createElement(
+            'div'
+          );
+
+
+        waiting.className =
+          'waiting-task';
+
+
+        waiting.innerHTML = `
+
+          <span class="waiting-badge">
+            Aguardando
+          </span>
+
+          <span>
+            ${task}
+          </span>
+
+        `;
+
+
+        box.appendChild(
+          waiting
+        );
+
+
+        return;
+
+      }
+
+
+      /* -------------------------------------------
+         CHECKBOX
+      ------------------------------------------- */
+
+      const label =
+        document.createElement(
+          'label'
+        );
+
+
+      label.className =
+        'task';
+
+
+      label.innerHTML = `
+
+        <input
+          type="checkbox"
+          data-id="${taskId}"
+          ${
+            checked[taskId]
+              ? 'checked'
+              : ''
+          }
+        >
+
+        <span>
+          ${task}
+        </span>
+
+      `;
+
+
+      const checkbox =
+        label.querySelector(
+          'input'
+        );
+
+
+      checkbox.addEventListener(
+        'change',
+        function(){
+
+          checked[taskId] =
+            this.checked;
+
+          save();
+
+          updateProgress();
+
+        }
+      );
+
+
+      box.appendChild(
+        label
+      );
+
+    }
+  );
+
+
+  container.appendChild(
+    box
+  );
+
+});
+
+
+/* ==================================================
+   SAVE
+================================================== */
+
+function save(){
+
+  const reminderValues =
+    [
+      ...document
+        .querySelectorAll(
+          '.target-input'
+        )
+    ]
+    .map(
+      input => input.value
+    );
+
+
+  localStorage.setItem(
+
+    STORAGE_KEY,
+
+    JSON.stringify({
+
+      checked:checked,
+
+      targets:
+        reminderValues
+
+    })
+
+  );
+
+}
+
+
+/* ==================================================
+   PROGRESS
+================================================== */
+
+function updateProgress(){
+
+  const checkboxes =
+    [
+      ...document
+        .querySelectorAll(
+          '.task input'
+        )
+    ];
+
+
+  const total =
+    checkboxes.length;
+
+
+  const done =
+    checkboxes.filter(
+      checkbox =>
+        checkbox.checked
+    ).length;
+
+
+  const percent =
+    total > 0
+      ? Math.round(
+          done / total * 100
+        )
+      : 0;
+
+
+  document
+    .getElementById(
+      'total'
+    )
+    .textContent =
+      total;
+
+
+  document
+    .getElementById(
+      'done'
+    )
+    .textContent =
+      done;
+
+
+  document
+    .getElementById(
+      'waiting'
+    )
+    .textContent =
+      sections.filter(
+        section =>
+          section.waiting
+      )
+      .reduce(
+        (sum,section) =>
+          sum +
+          section.tasks.length,
+        0
+      );
+
+
+  document
+    .getElementById(
+      'percent'
+    )
+    .textContent =
+      percent + '%';
+
+
+  document
+    .getElementById(
+      'bar'
+    )
+    .style.width =
+      percent + '%';
+
+
+  const message =
+    document.getElementById(
+      'progressMessage'
+    );
+
+
+  if(percent === 0){
+
+    message.textContent =
+      'Comece pela primeira estrutura.';
+
+  }
+
+  else if(percent < 30){
+
+    message.textContent =
+      'Bom começo. Continue nas estruturas.';
+
+  }
+
+  else if(percent < 60){
+
+    message.textContent =
+      'A produção está avançando.';
+
+  }
+
+  else if(percent < 90){
+
+    message.textContent =
+      'Quase lá. Mantenha o ritmo.';
+
+  }
+
+  else if(percent < 100){
+
+    message.textContent =
+      'Falta pouco para concluir a lista.';
+
+  }
+
+  else{
+
+    message.textContent =
+      'Produção concluída. Excelente trabalho! ✦';
+
+  }
+
+}
+
+
+/* ==================================================
+   LEMBRETES
+================================================== */
+
+const targets =
+  document.getElementById(
+    'targets'
+  );
+
+
+function createTarget(
+  value = ''
+){
+
+  const label =
+    document.createElement(
+      'label'
+    );
+
+
+  label.className =
+    'target';
+
+
+  label.innerHTML = `
+
+    <span>
+      ✦
+    </span>
+
+    <input
+      class="target-input"
+      type="text"
+      placeholder="Novo lembrete..."
+    >
+
+  `;
+
+
+  const input =
+    label.querySelector(
+      'input'
+    );
+
+
+  input.value =
+    value;
+
+
+  input.addEventListener(
+    'input',
+    save
+  );
+
+
+  targets.appendChild(
+    label
+  );
+
+}
+
+
+/* ==================================================
+   LEMBRETES PADRÃO
+================================================== */
+
+const defaultTargets = [
+
+  'Texturizar o gato antes de montar o orçamento.',
+
+  'Enviar o gato para aprovação do cliente.',
+
+  'Depois da aprovação, enviar orçamento do GATO e dos ANIMAIS.',
+
+  'Alinhar os 107 animais com os meninos.',
+
+  'Cobrar referências das armas ao cliente.'
+
+];
+
+
+(
+  saved.targets &&
+  saved.targets.length
+    ? saved.targets
+    : defaultTargets
+)
+.forEach(
+  createTarget
+);
+
+
+/* ==================================================
+   NOVO LEMBRETE
+================================================== */
+
+document
+  .getElementById('add')
+  .addEventListener(
+    'click',
+    () => {
+
+      createTarget();
+
+      const inputs =
+        document
+          .querySelectorAll(
+            '.target-input'
+          );
+
+
+      inputs[
+        inputs.length - 1
+      ].focus();
+
+
+      save();
+
+    }
+  );
+
+
+/* ==================================================
+   DATA
+================================================== */
+
+document
+  .getElementById('date')
+  .textContent =
+
+  new Intl.DateTimeFormat(
+    'pt-BR',
+    {
+      weekday:'long',
+      day:'numeric',
+      month:'long'
+    }
+  )
+  .format(
+    new Date()
+  );
+
+
+/* ==================================================
+   INIT
+================================================== */
+
+updateProgress();
+
+</script>
+
+</body>
+
+</html>
