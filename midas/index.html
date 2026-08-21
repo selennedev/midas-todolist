@@ -2,37 +2,67 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Midas — Central de Produção</title>
+<title>Midas — Missão do Dia</title>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap');
+/* =========================================================
+   FONTS
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 :root{
-  --purple:#6c32ad;
-  --deep:#3e1d66;
-  --lilac:#e9dbff;
-  --soft:#fdfaff;
-  --ink:#3c2258;
 
-  --model:#9b5dcc;
-  --texture:#d77bba;
-  --animals:#67a66d;
-  --commercial:#d59a4a;
+  --red:#d71920;
+  --red-dark:#9f1117;
 
-  --line:#dfd0eb;
+  --yellow:#f5c400;
+  --yellow-dark:#c99d00;
+
+  --blue:#123b78;
+  --blue-dark:#071b38;
+
+  --navy:#06152d;
+
+  --white:#ffffff;
+  --ice:#edf5fc;
+
+  --ink:#17243a;
+  --muted:#6d7b90;
+
+  --line:#d9e2ec;
+
+  --green:#26965b;
+  --gray:#7d8795;
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
+
   margin:0;
+
   min-height:100vh;
 
   color:var(--ink);
@@ -40,390 +70,674 @@ body{
   font-family:'DM Sans',sans-serif;
 
   background:
-    radial-gradient(
-      circle at 5% 0%,
-      #f1e6ff 0,
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 95% 10%,
-      #eadcf9 0,
-      transparent 24%
-    ),
-    #faf8fd;
+
+    linear-gradient(
+      145deg,
+      #edf5fc 0%,
+      #f8fafc 45%,
+      #e9f1f8 100%
+    );
+
 }
+
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 .page{
-  width:min(1150px,calc(100% - 30px));
+
+  width:min(
+    1120px,
+    calc(100% - 30px)
+  );
+
   margin:auto;
-  padding:28px 0 50px;
+
+  padding:
+    28px
+    0
+    55px;
+
 }
 
 
-/* ==================================================
+/* =========================================================
    HERO
-================================================== */
+========================================================= */
 
 .hero{
 
   position:relative;
+
   overflow:hidden;
 
-  min-height:220px;
+  min-height:270px;
 
-  padding:36px 320px 30px 38px;
+  padding:
+    38px
+    330px
+    35px
+    40px;
 
-  border-radius:28px;
+  border-radius:8px;
 
   background:
+
     linear-gradient(
-      120deg,
-      #f8efff,
-      #e2cdf8
+      135deg,
+      var(--navy) 0%,
+      #0a2a5a 55%,
+      var(--blue) 100%
     );
 
-  border:2px solid #d9c2ef;
-
   box-shadow:
-    0 15px 35px #4c226c18;
+    0 18px 40px #061b3830;
+
 }
+
+
+/* diagonal racing stripes */
 
 .hero::before{
 
-  content:'✦  MIDAS  ✦';
+  content:'';
 
   position:absolute;
 
-  right:35px;
-  top:28px;
+  width:620px;
 
-  color:#a56acb;
+  height:620px;
 
-  font-family:'Patrick Hand',cursive;
+  right:-230px;
 
-  font-size:26px;
+  top:-210px;
 
-  letter-spacing:4px;
-
-  transform:rotate(-5deg);
-}
-
-.hero h1{
-
-  margin:0;
-
-  color:var(--deep);
-
-  font-family:'Patrick Hand',cursive;
-
-  font-size:
-    clamp(
-      3.4rem,
-      8vw,
-      6rem
-    );
-
-  font-weight:400;
-
-  line-height:.8;
-}
-
-.hero p{
-
-  margin:18px 0 0;
-
-  max-width:580px;
-
-  color:#704d93;
-
-  line-height:1.55;
-
-  font-size:.98rem;
-}
-
-.badge{
-
-  display:inline-block;
-
-  margin-top:20px;
-
-  padding:8px 15px;
-
-  border-radius:999px;
-
-  background:#ffffffb8;
-
-  color:#62348e;
-
-  font-size:.76rem;
-
-  font-weight:700;
-
-  text-transform:uppercase;
-
-  letter-spacing:.05em;
-}
-
-
-/* ==================================================
-   DECORAÇÃO
-================================================== */
-
-.midas-icon{
-
-  position:absolute;
-
-  right:48px;
-  bottom:20px;
-
-  width:190px;
-  height:125px;
-
-  border-radius:
-    45% 55% 48% 52% /
-    55% 45% 55% 45%;
+  transform:rotate(24deg);
 
   background:
 
-    radial-gradient(
-      ellipse at 50% 40%,
-      #d5a16d 0 27%,
-      transparent 28%
-    ),
+    repeating-linear-gradient(
+      90deg,
 
-    radial-gradient(
-      ellipse at 30% 30%,
-      #8d5a35 0 22%,
-      transparent 23%
-    ),
+      transparent 0 25px,
 
-    radial-gradient(
-      ellipse at 70% 30%,
-      #8d5a35 0 22%,
-      transparent 23%
+      #ffffff0b 26px 45px,
+
+      transparent 46px 70px
     );
 
-  opacity:.9;
-
-  filter:
-    drop-shadow(
-      0 9px 7px #3d1b5b28
-    );
 }
 
-.midas-icon::after{
 
-  content:'MIDAS';
+/* red racing stripe */
+
+.hero::after{
+
+  content:'';
 
   position:absolute;
 
-  right:-8px;
-  bottom:4px;
+  left:-80px;
 
-  padding:6px 10px;
+  bottom:28px;
 
-  border-radius:999px;
+  width:500px;
 
-  background:white;
+  height:9px;
 
-  color:#6c32ad;
+  transform:skewX(-35deg);
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--red),
+      var(--red) 70%,
+      var(--yellow) 70%,
+      var(--yellow)
+    );
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
+
+  position:relative;
+
+  z-index:3;
+
+}
+
+.kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:15px;
+
+  color:var(--yellow);
+
+  font-family:'Oswald',sans-serif;
+
+  font-size:.72rem;
+
+  font-weight:700;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+}
+
+.kicker::before{
+
+  content:'';
+
+  width:27px;
+
+  height:3px;
+
+  background:var(--yellow);
+
+}
+
+
+h1{
+
+  margin:0;
+
+  color:#fff;
+
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:
+    clamp(
+      4.3rem,
+      10vw,
+      7.5rem
+    );
+
+  line-height:.78;
+
+  letter-spacing:.03em;
+
+}
+
+
+.hero-title-red{
+
+  color:var(--red);
+
+}
+
+
+.hero-subtitle{
+
+  margin:
+    18px
+    0
+    0;
+
+  max-width:560px;
+
+  color:#dceaff;
+
+  font-size:.95rem;
+
+  line-height:1.55;
+
+}
+
+
+.date-badge{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-top:20px;
+
+  padding:
+    8px
+    13px;
+
+  background:var(--red);
+
+  color:#fff;
+
+  font-family:'Oswald',sans-serif;
+
+  font-size:.7rem;
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+}
+
+.date-badge::before{
+
+  content:'●';
+
+  color:var(--yellow);
+
+}
+
+
+/* =========================================================
+   HELMET / DECORATION
+========================================================= */
+
+.helmet{
+
+  position:absolute;
+
+  z-index:2;
+
+  right:45px;
+
+  bottom:18px;
+
+  width:190px;
+
+  height:175px;
+
+  border-radius:
+    50%
+    50%
+    45%
+    45%;
+
+  background:
+
+    linear-gradient(
+      150deg,
+      #ffffff 0 32%,
+      var(--red) 33% 51%,
+      var(--yellow) 52% 59%,
+      #ffffff 60%
+    );
+
+  border:
+    5px
+    solid
+    #e9eef5;
+
+  box-shadow:
+
+    inset
+      -15px
+      -15px
+      25px
+      #00000020,
+
+    12px
+    14px
+    0
+    #00000030;
+
+  transform:
+    rotate(-7deg);
+
+}
+
+
+.helmet::before{
+
+  content:'';
+
+  position:absolute;
+
+  left:25px;
+
+  right:25px;
+
+  top:54px;
+
+  height:35px;
+
+  border-radius:
+    5px
+    20px
+    20px
+    5px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #07152f,
+      #1e3554,
+      #07152f
+    );
+
+  border:
+    4px
+    solid
+    #dce6f0;
+
+}
+
+
+.helmet::after{
+
+  content:'';
+
+  position:absolute;
+
+  right:-27px;
+
+  bottom:7px;
+
+  padding:
+    5px
+    10px;
+
+  background:#fff;
+
+  color:var(--red);
+
+  font-family:'Oswald',sans-serif;
 
   font-size:.7rem;
 
   font-weight:700;
+
+  letter-spacing:.1em;
+
+  transform:rotate(-5deg);
+
 }
 
 
-/* ==================================================
-   GRID
-================================================== */
+/* =========================================================
+   MAIN GRID
+========================================================= */
 
 .layout{
 
   display:grid;
 
   grid-template-columns:
-    1.45fr .8fr;
+    1.45fr
+    .78fr;
 
-  gap:22px;
+  gap:21px;
 
-  margin-top:22px;
+  margin-top:21px;
+
 }
+
 
 .card{
 
   padding:24px;
 
-  border-radius:22px;
+  border-radius:8px;
 
   background:#fff;
 
   box-shadow:
-    0 8px 22px #48206f10;
+    0 8px 22px #18324d12;
+
 }
+
 
 .main-card{
 
-  grid-row:span 3;
+  grid-row:span 2;
+
+}
+
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+.card-title{
+
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:space-between;
+
+  gap:15px;
+
 }
 
 .card h2{
 
   margin:0;
 
-  color:#582487;
+  color:var(--blue);
 
-  font-family:'Patrick Hand',cursive;
+  font-family:'Bebas Neue',sans-serif;
 
-  font-size:2.35rem;
+  font-size:2.5rem;
 
   font-weight:400;
 
+  letter-spacing:.04em;
+
   line-height:.9;
+
 }
 
 .sub{
 
-  margin:8px 0 20px;
+  margin:
+    7px
+    0
+    20px;
 
-  color:#896ba3;
+  color:var(--muted);
 
-  font-size:.82rem;
+  font-size:.78rem;
+
 }
 
 
-/* ==================================================
+/* =========================================================
    SECTION
-================================================== */
+========================================================= */
 
 .section{
 
-  margin-bottom:18px;
+  position:relative;
 
-  padding:18px 18px 15px 21px;
+  margin-bottom:15px;
 
-  border-left:8px solid var(--model);
+  padding:
+    18px
+    18px
+    15px
+    22px;
+
+  border-left:
+    8px
+    solid
+    var(--red);
 
   border-radius:
-    0 15px 15px 0;
+    0
+    7px
+    7px
+    0;
 
-  background:#fbf8ff;
+  background:
+    linear-gradient(
+      135deg,
+      #fff7f7,
+      #fdfdfd
+    );
+
 }
 
-.section.texture{
 
-  border-color:var(--texture);
+/* blue */
 
-  background:#fff9fc;
+.section.blue{
+
+  border-color:var(--blue);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f4f8fd,
+      #ffffff
+    );
+
 }
 
-.section.animals{
 
-  border-color:var(--animals);
+/* yellow */
 
-  background:#f9fff9;
+.section.yellow{
+
+  border-color:var(--yellow);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffdf3,
+      #ffffff
+    );
+
 }
 
-.section.commercial{
 
-  border-color:var(--commercial);
+/* =========================================================
+   SECTION HEADER
+========================================================= */
 
-  background:#fffcf7;
-}
-
-.section.waiting{
-
-  border-color:#9b9b9b;
-
-  background:#f7f7f7;
-}
-
-.section-title{
+.section-header{
 
   display:flex;
 
-  align-items:center;
-
   justify-content:space-between;
 
-  gap:10px;
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:8px;
+
 }
 
-.section-title strong{
 
-  color:#512484;
+.section-title{
 
-  font-family:'Patrick Hand',cursive;
+  color:var(--blue-dark);
+
+  font-family:'Bebas Neue',sans-serif;
 
   font-size:1.55rem;
 
-  font-weight:400;
+  letter-spacing:.05em;
+
 }
 
-.category{
 
-  padding:4px 9px;
+.section-tag{
 
-  border-radius:999px;
+  padding:
+    5px
+    9px;
 
-  background:#eee5f7;
+  border-radius:3px;
 
-  color:#76538f;
+  background:#eaf0f7;
 
-  font-size:.66rem;
+  color:#607087;
 
-  font-weight:700;
+  font-family:'Oswald',sans-serif;
+
+  font-size:.6rem;
+
+  font-weight:600;
+
+  letter-spacing:.06em;
 
   text-transform:uppercase;
+
 }
 
 
-/* ==================================================
+/* =========================================================
    TASK
-================================================== */
+========================================================= */
 
 .task{
 
   display:grid;
 
-  grid-template-columns:20px 1fr;
+  grid-template-columns:
+    20px
+    1fr;
 
   gap:9px;
 
   align-items:start;
 
-  padding:7px 0;
+  padding:
+    7px
+    0;
 
   font-size:.88rem;
 
   line-height:1.4;
+
 }
+
 
 .task input{
 
   appearance:none;
 
   width:18px;
+
   height:18px;
 
-  margin:1px 0 0;
+  margin:
+    1px
+    0
+    0;
 
   border:
-    2px solid #a178bf;
+    2px
+    solid
+    #8393a8;
 
-  border-radius:5px;
+  border-radius:3px;
 
-  background:white;
+  background:#fff;
 
   cursor:pointer;
+
 }
+
 
 .task input:checked{
 
-  background:var(--purple);
+  background:var(--red);
 
-  border-color:var(--purple);
+  border-color:var(--red);
+
 }
+
 
 .task input:checked::after{
 
@@ -431,28 +745,45 @@ body{
 
   display:block;
 
-  color:white;
+  color:#fff;
 
   text-align:center;
 
   font-size:12px;
 
+  font-weight:800;
+
   line-height:14px;
 
-  font-weight:700;
 }
+
 
 .task:has(input:checked) span{
 
-  color:#aa91b8;
+  color:#8994a3;
 
   text-decoration:line-through;
+
 }
 
 
-/* ==================================================
-   WAITING TASK
-================================================== */
+/* =========================================================
+   WAITING / BLOCKED
+========================================================= */
+
+.waiting{
+
+  border-color:#8b939e;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3f5f7,
+      #ffffff
+    );
+
+}
+
 
 .waiting-task{
 
@@ -462,85 +793,191 @@ body{
 
   gap:10px;
 
-  padding:10px 0;
+  padding:
+    10px
+    0;
 
-  color:#777;
+  color:#667180;
 
   font-size:.86rem;
+
+  line-height:1.4;
+
 }
+
 
 .waiting-badge{
 
   flex-shrink:0;
 
-  padding:5px 9px;
+  padding:
+    5px
+    8px;
 
-  border-radius:999px;
+  border-radius:3px;
 
-  background:#e6e6e6;
+  background:#e0e4e8;
 
-  color:#666;
+  color:#68727d;
 
-  font-size:.62rem;
+  font-family:'Oswald',sans-serif;
 
-  font-weight:700;
+  font-size:.58rem;
+
+  font-weight:600;
+
+  letter-spacing:.05em;
 
   text-transform:uppercase;
+
 }
 
 
-/* ==================================================
-   META
-================================================== */
+/* =========================================================
+   PROGRESS
+========================================================= */
 
-.goal{
+.progress-box{
+
+  margin-top:22px;
+
+  padding-top:18px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+}
+
+
+.progress-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-bottom:8px;
+
+  color:#68778b;
+
+  font-size:.78rem;
+
+  font-weight:700;
+
+}
+
+
+.progress{
+
+  height:12px;
+
+  overflow:hidden;
+
+  border-radius:2px;
+
+  background:#e4ebf2;
+
+}
+
+
+.progress-bar{
+
+  width:0;
+
+  height:100%;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--red),
+      #ec4b48
+    );
+
+  transition:
+    width
+    .3s
+    ease;
+
+}
+
+
+.progress-message{
+
+  margin-top:8px;
+
+  color:#8793a3;
+
+  font-size:.7rem;
+
+}
+
+
+/* =========================================================
+   FOCUS CARD
+========================================================= */
+
+.focus{
 
   background:
     linear-gradient(
       145deg,
-      #f8eeff,
-      #e9d8fc
+      var(--navy),
+      var(--blue)
     );
+
+  color:white;
+
 }
 
-.goal h2{
 
-  font-size:2.5rem;
+.focus h2{
+
+  color:white;
+
+  font-size:2.6rem;
+
 }
 
-.goal p{
 
-  line-height:1.55;
+.focus p{
 
-  font-size:.9rem;
+  color:#d8e8fa;
+
+  font-size:.88rem;
+
+  line-height:1.6;
+
 }
 
-.priority{
 
-  margin-top:14px;
+.focus-line{
 
-  padding:13px;
+  margin-top:15px;
 
-  border-radius:12px;
+  padding:
+    12px
+    13px;
 
-  background:#ffffff91;
+  border-left:
+    4px
+    solid
+    var(--yellow);
 
-  border:1px solid #dac6ec;
+  background:#ffffff0d;
 
-  font-size:.82rem;
+  color:#fff;
+
+  font-size:.78rem;
 
   line-height:1.5;
-}
 
-.priority strong{
-
-  color:#6c32ad;
 }
 
 
-/* ==================================================
+/* =========================================================
    STATS
-================================================== */
+========================================================= */
 
 .stats{
 
@@ -551,67 +988,93 @@ body{
 
   gap:8px;
 
-  margin-top:16px;
+  margin-top:17px;
+
 }
+
 
 .stat{
 
-  padding:12px 8px;
+  padding:
+    12px
+    8px;
 
   text-align:center;
 
-  border-radius:12px;
+  border:
+    1px
+    solid
+    #dfe6ed;
 
-  background:#fff;
+  border-radius:5px;
 
-  border:1px solid #e6d9ef;
+  background:#f9fbfd;
+
 }
+
 
 .stat strong{
 
   display:block;
 
-  color:#582487;
+  color:var(--red);
 
-  font-size:1.25rem;
+  font-family:'Bebas Neue',sans-serif;
+
+  font-size:1.7rem;
+
+  font-weight:400;
+
 }
+
 
 .stat span{
 
   display:block;
 
-  margin-top:3px;
+  margin-top:2px;
 
-  color:#8c759d;
+  color:#7b8898;
 
-  font-size:.65rem;
+  font-size:.6rem;
+
+  font-weight:700;
+
+  letter-spacing:.04em;
 
   text-transform:uppercase;
+
 }
 
 
-/* ==================================================
-   LEMBRETES
-================================================== */
+/* =========================================================
+   NOTES
+========================================================= */
 
-.targets{
+.notes{
 
-  background:var(--deep);
+  background:var(--navy);
 
-  color:white;
+  color:#fff;
+
 }
 
-.targets h2{
 
-  color:white;
+.notes h2{
+
+  color:#fff;
+
 }
 
-.targets .sub{
 
-  color:#d9c1ed;
+.notes .sub{
+
+  color:#b9cee5;
+
 }
 
-.target{
+
+.note{
 
   display:flex;
 
@@ -619,21 +1082,26 @@ body{
 
   gap:9px;
 
-  margin-top:10px;
+  margin-top:9px;
 
-  padding-bottom:9px;
+  padding-bottom:8px;
 
   border-bottom:
-    1px dashed
-    #ffffff44;
+    1px
+    dashed
+    #ffffff35;
+
 }
 
-.target span{
 
-  color:#d9a9f5;
+.note span{
+
+  color:var(--yellow);
+
 }
 
-.target input{
+
+.note input{
 
   width:100%;
 
@@ -645,117 +1113,71 @@ body{
 
   color:white;
 
-  font-family:'DM Sans';
+  font-family:'DM Sans',sans-serif;
+
 }
 
-.target input::placeholder{
 
-  color:#c9afd9;
+.note input::placeholder{
+
+  color:#8298b3;
+
 }
+
 
 .add{
 
-  margin-top:13px;
+  margin-top:12px;
 
-  padding:8px 12px;
+  padding:
+    8px
+    12px;
 
   border:0;
 
-  border-radius:9px;
+  border-radius:3px;
 
-  background:#b06bd1;
+  background:var(--red);
 
-  color:white;
+  color:#fff;
 
-  font-weight:700;
+  font-family:'Oswald',sans-serif;
+
+  font-size:.7rem;
+
+  font-weight:600;
+
+  letter-spacing:.05em;
+
+  text-transform:uppercase;
 
   cursor:pointer;
+
 }
 
 
-/* ==================================================
-   PROGRESS
-================================================== */
-
-.progress-box{
-
-  margin-top:22px;
-}
-
-.progress-header{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  margin-bottom:7px;
-
-  color:#765d8f;
-
-  font-size:.8rem;
-
-  font-weight:700;
-}
-
-.progress{
-
-  height:12px;
-
-  overflow:hidden;
-
-  border-radius:999px;
-
-  background:#eadcf5;
-}
-
-.progress-bar{
-
-  height:100%;
-
-  width:0;
-
-  border-radius:999px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #743db4,
-      #c58ce8
-    );
-
-  transition:
-    width .3s ease;
-}
-
-.progress-message{
-
-  margin-top:8px;
-
-  color:#9279a7;
-
-  font-size:.72rem;
-}
-
-
-/* ==================================================
+/* =========================================================
    FOOTER
-================================================== */
+========================================================= */
 
 .footer{
 
   margin-top:22px;
 
+  color:#718196;
+
   text-align:center;
 
-  color:#896fa0;
+  font-size:.72rem;
 
-  font-size:.78rem;
+  letter-spacing:.03em;
+
 }
 
 
-/* ==================================================
+/* =========================================================
    MOBILE
-================================================== */
+========================================================= */
 
 @media(max-width:780px){
 
@@ -768,61 +1190,79 @@ body{
       );
 
     padding-top:12px;
+
   }
+
 
   .hero{
 
-    min-height:245px;
+    min-height:275px;
 
     padding:
       30px
       22px
-      130px;
+      145px;
+
   }
 
-  .hero h1{
 
-    font-size:4.2rem;
-  }
-
-  .midas-icon{
+  .helmet{
 
     right:25px;
 
-    width:145px;
-    height:95px;
+    width:135px;
+
+    height:125px;
+
   }
+
 
   .layout{
 
     grid-template-columns:1fr;
+
   }
+
 
   .main-card{
 
     grid-row:auto;
+
   }
+
+
+  .card{
+
+    padding:18px;
+
+  }
+
+
+  .section-header{
+
+    align-items:flex-start;
+
+    flex-direction:column;
+
+  }
+
 
   .stats{
 
     grid-template-columns:
       repeat(3,1fr);
+
   }
 
 }
 
-@media(max-width:450px){
+
+@media(max-width:430px){
 
   .stats{
 
     grid-template-columns:1fr;
-  }
 
-  .section-title{
-
-    align-items:flex-start;
-
-    flex-direction:column;
   }
 
 }
@@ -838,52 +1278,84 @@ body{
 <main class="page">
 
 
-<!-- ==================================================
+<!-- =========================================================
      HERO
-================================================== -->
+========================================================= -->
 
 <header class="hero">
 
-  <h1>Midas</h1>
+  <div class="hero-content">
 
-  <p>
-    Central de produção do projeto:
-    modelagem, texturização, animais,
-    aprovação e orçamento.
-  </p>
+    <div class="kicker">
+      Midas Racing Project
+    </div>
 
-  <span
-    class="badge"
-    id="date">
-  </span>
+
+    <h1>
+      MISSÃO
+      <br>
+      <span class="hero-title-red">
+        MIDAS
+      </span>
+    </h1>
+
+
+    <p class="hero-subtitle">
+
+      Central de produção do Pedro.
+      Foco, velocidade e execução —
+      uma missão de cada vez.
+
+    </p>
+
+
+    <span
+      class="date-badge"
+      id="date">
+    </span>
+
+  </div>
+
 
   <div
-    class="midas-icon"
+    class="helmet"
     aria-hidden="true">
   </div>
 
 </header>
 
 
+<!-- =========================================================
+     LAYOUT
+========================================================= -->
+
 <section class="layout">
 
 
-<!-- ==================================================
+<!-- =========================================================
      MISSÕES
-================================================== -->
+========================================================= -->
 
 <article class="card main-card">
 
-  <h2>
-    Missões do Midas ✦
-  </h2>
+  <div class="card-title">
 
-  <p class="sub">
-    Checklist geral de produção
-  </p>
+    <div>
+
+      <h2>
+        Cronograma
+      </h2>
+
+      <p class="sub">
+        Produção do Midas · checklist de execução
+      </p>
+
+    </div>
+
+  </div>
 
 
-  <div id="sections"></div>
+  <div id="missions"></div>
 
 
   <!-- PROGRESS -->
@@ -893,7 +1365,7 @@ body{
     <div class="progress-header">
 
       <span>
-        Progresso das tarefas
+        PROGRESSO DA MISSÃO
       </span>
 
       <span id="percent">
@@ -917,52 +1389,14 @@ body{
       class="progress-message"
       id="progressMessage">
 
-      Comece pela primeira estrutura.
+      Preparado para largar.
 
     </div>
 
   </div>
 
-</article>
 
-
-<!-- ==================================================
-     META
-================================================== -->
-
-<article class="card goal">
-
-  <h2>
-    Meta do Midas ♡
-  </h2>
-
-  <p>
-
-    Avançar a produção das estruturas,
-    preparar a etapa de texturização
-    e organizar a aprovação do gato
-    antes de fechar o orçamento dos
-    animais.
-
-  </p>
-
-
-  <div class="priority">
-
-    <strong>
-      Ordem crítica:
-    </strong>
-
-    <br>
-
-    Texturizar o gato cartoon →
-    enviar para aprovação →
-    montar orçamento do GATO e dos
-    ANIMAIS →
-    iniciar os 107 animais com os meninos.
-
-  </div>
-
+  <!-- STATS -->
 
   <div class="stats">
 
@@ -973,7 +1407,7 @@ body{
       </strong>
 
       <span>
-        tarefas
+        Tarefas
       </span>
 
     </div>
@@ -986,7 +1420,7 @@ body{
       </strong>
 
       <span>
-        feitas
+        Concluídas
       </span>
 
     </div>
@@ -999,7 +1433,7 @@ body{
       </strong>
 
       <span>
-        aguardando
+        Aguardando
       </span>
 
     </div>
@@ -1009,28 +1443,80 @@ body{
 </article>
 
 
-<!-- ==================================================
-     LEMBRETES
-================================================== -->
+<!-- =========================================================
+     FOCO
+========================================================= -->
 
-<article class="card targets">
+<article class="card focus">
 
   <h2>
-    Lembretes
+    FOCO
   </h2>
 
-  <p class="sub">
-    Pontos importantes do projeto
+
+  <p>
+
+    O objetivo é avançar o Midas
+    sem misturar tarefas bloqueadas
+    com aquilo que já pode ser executado.
+
   </p>
 
-  <div id="targets"></div>
+
+  <div class="focus-line">
+
+    <strong>
+      🏁 Prioridade atual
+    </strong>
+
+    <br><br>
+
+    Finalizar as estruturas do Midas.
+
+  </div>
+
+
+  <div class="focus-line">
+
+    <strong>
+      ⚔️ Dependência
+    </strong>
+
+    <br><br>
+
+    As armas só entram em produção
+    quando o cliente enviar as referências.
+
+  </div>
+
+</article>
+
+
+<!-- =========================================================
+     RECADOS
+========================================================= -->
+
+<article class="card notes">
+
+  <h2>
+    RECADOS
+  </h2>
+
+
+  <p class="sub">
+    Observações do projeto
+  </p>
+
+
+  <div id="notes"></div>
+
 
   <button
     type="button"
     class="add"
     id="add">
 
-    + lembrete
+    + Recado
 
   </button>
 
@@ -1042,8 +1528,8 @@ body{
 
 <p class="footer">
 
-  Midas • Tudo salvo automaticamente
-  neste navegador ✦
+  MIDAS RACING PROJECT ·
+  Foco • Precisão • Velocidade
 
 </p>
 
@@ -1054,39 +1540,47 @@ body{
 <script>
 
 
-/* ==================================================
+/* =========================================================
    STORAGE
-================================================== */
+========================================================= */
+
+/*
+  Nova chave para garantir que
+  nenhum check de versões anteriores
+  seja carregado.
+*/
 
 const STORAGE_KEY =
-  'midas-central-producao-v1';
+  'midas-pedro-senna-v1';
 
 
-let saved =
+const saved =
   JSON.parse(
-    localStorage.getItem(STORAGE_KEY)
-    || '{}'
+    localStorage.getItem(
+      STORAGE_KEY
+    ) || '{}'
   );
 
 
-let checked =
-  saved.checked || {};
+const checks =
+  saved.checks || {};
 
 
-/* ==================================================
-   DADOS
-================================================== */
+/* =========================================================
+   DADOS DO MIDAS
+========================================================= */
 
-const sections = [
+const data = [
 
   {
+
     id:'estruturas',
 
-    title:'🏕️ ESTRUTURAS',
+    title:'🏕️ MIDAS — ESTRUTURAS',
 
-    category:'Modelagem',
+    category:'MODELAGEM',
 
-    type:'model',
+    type:'red',
 
     tasks:[
 
@@ -1106,11 +1600,12 @@ const sections = [
 
 
   {
+
     id:'armas',
 
-    title:'⚔️ ARMAS',
+    title:'⚔️ MIDAS — ARMAS',
 
-    category:'Cliente',
+    category:'AGUARDANDO REFERÊNCIAS',
 
     type:'waiting',
 
@@ -1122,272 +1617,229 @@ const sections = [
 
     ]
 
-  },
-
-
-  {
-    id:'texturizacao',
-
-    title:'🎨 TEXTURIZAÇÃO',
-
-    category:'Texturização',
-
-    type:'texture',
-
-    tasks:[
-
-      'Phey — texturizar gema; studs',
-
-      'Phey — texturizar picareta; studs',
-
-      'Gato — texturizar gato cartoon'
-
-    ]
-
-  },
-
-
-  {
-    id:'mercado',
-
-    title:'🥩 MERCADO',
-
-    category:'Produção',
-
-    type:'commercial',
-
-    tasks:[
-
-      'Modelar a maioria dos assets do mercado'
-
-    ]
-
-  },
-
-
-  {
-    id:'animais',
-
-    title:'🐾 ANIMAIS',
-
-    category:'Produção',
-
-    type:'animals',
-
-    tasks:[
-
-      'Montar orçamento do GATO e dos ANIMAIS e enviar — somente depois da aprovação do gato',
-
-      'Começar os 107 animais com os meninos'
-
-    ]
-
   }
 
 ];
 
 
-/* ==================================================
+/* =========================================================
    RENDER
-================================================== */
+========================================================= */
 
-const container =
+const host =
   document.getElementById(
-    'sections'
+    'missions'
   );
 
 
-sections.forEach(section => {
+data.forEach(
+  section => {
 
-  const box =
-    document.createElement(
-      'div'
+    const box =
+      document.createElement(
+        'section'
+      );
+
+
+    box.className =
+      'section ' +
+      (
+        section.type === 'blue'
+          ? 'blue'
+          : ''
+      ) +
+      (
+        section.type === 'yellow'
+          ? 'yellow'
+          : ''
+      ) +
+      (
+        section.type === 'waiting'
+          ? 'waiting'
+          : ''
+      );
+
+
+    /* HEADER */
+
+    const header =
+      document.createElement(
+        'div'
+      );
+
+
+    header.className =
+      'section-header';
+
+
+    header.innerHTML = `
+
+      <div class="section-title">
+
+        ${section.title}
+
+      </div>
+
+
+      <span class="section-tag">
+
+        ${section.category}
+
+      </span>
+
+    `;
+
+
+    box.appendChild(
+      header
     );
 
 
-  box.className =
-    'section ' +
-    (
-      section.type === 'texture'
-        ? 'texture'
-        : ''
-    ) +
-    (
-      section.type === 'animals'
-        ? ' animals'
-        : ''
-    ) +
-    (
-      section.type === 'commercial'
-        ? ' commercial'
-        : ''
-    ) +
-    (
-      section.type === 'waiting'
-        ? ' waiting'
-        : ''
-    );
+    /* TASKS */
+
+    section.tasks.forEach(
+      (task,index) => {
+
+        const id =
+          section.id +
+          '-' +
+          index;
 
 
-  const header =
-    document.createElement(
-      'div'
-    );
+        /* ---------------------------------------------
+           BLOCO AGUARDANDO
+        --------------------------------------------- */
+
+        if(section.waiting){
+
+          const waiting =
+            document.createElement(
+              'div'
+            );
 
 
-  header.className =
-    'section-title';
+          waiting.className =
+            'waiting-task';
 
 
-  header.innerHTML = `
+          waiting.innerHTML = `
 
-    <strong>
-      ${section.title}
-    </strong>
+            <span class="waiting-badge">
 
-    <span class="category">
-      ${section.category}
-    </span>
+              Aguardando
 
-  `;
+            </span>
 
 
-  box.appendChild(header);
+            <span>
+
+              ${task}
+
+            </span>
+
+          `;
 
 
-  section.tasks.forEach(
-    (task,index) => {
-
-
-      const taskId =
-        section.id +
-        '-' +
-        index;
-
-
-      /* -------------------------------------------
-         TAREFA BLOQUEADA
-      ------------------------------------------- */
-
-      if(section.waiting){
-
-        const waiting =
-          document.createElement(
-            'div'
+          box.appendChild(
+            waiting
           );
 
 
-        waiting.className =
-          'waiting-task';
+          return;
+
+        }
 
 
-        waiting.innerHTML = `
+        /* ---------------------------------------------
+           CHECKBOX
+        --------------------------------------------- */
 
-          <span class="waiting-badge">
-            Aguardando
-          </span>
+        const label =
+          document.createElement(
+            'label'
+          );
+
+
+        label.className =
+          'task';
+
+
+        label.innerHTML = `
+
+          <input
+            type="checkbox"
+            data-id="${id}"
+            ${
+              checks[id]
+                ? 'checked'
+                : ''
+            }
+          >
+
 
           <span>
+
             ${task}
+
           </span>
 
         `;
 
 
-        box.appendChild(
-          waiting
+        const input =
+          label.querySelector(
+            'input'
+          );
+
+
+        input.addEventListener(
+          'change',
+          function(){
+
+            checks[id] =
+              this.checked;
+
+
+            save();
+
+            updateProgress();
+
+          }
         );
 
 
-        return;
+        box.appendChild(
+          label
+        );
 
       }
+    );
 
 
-      /* -------------------------------------------
-         CHECKBOX
-      ------------------------------------------- */
+    host.appendChild(
+      box
+    );
 
-      const label =
-        document.createElement(
-          'label'
-        );
+  }
+);
 
 
-      label.className =
-        'task';
-
-
-      label.innerHTML = `
-
-        <input
-          type="checkbox"
-          data-id="${taskId}"
-          ${
-            checked[taskId]
-              ? 'checked'
-              : ''
-          }
-        >
-
-        <span>
-          ${task}
-        </span>
-
-      `;
-
-
-      const checkbox =
-        label.querySelector(
-          'input'
-        );
-
-
-      checkbox.addEventListener(
-        'change',
-        function(){
-
-          checked[taskId] =
-            this.checked;
-
-          save();
-
-          updateProgress();
-
-        }
-      );
-
-
-      box.appendChild(
-        label
-      );
-
-    }
-  );
-
-
-  container.appendChild(
-    box
-  );
-
-});
-
-
-/* ==================================================
+/* =========================================================
    SAVE
-================================================== */
+========================================================= */
 
 function save(){
 
-  const reminderValues =
+  const notes =
     [
       ...document
         .querySelectorAll(
-          '.target-input'
+          '.note-input'
         )
     ]
     .map(
-      input => input.value
+      input =>
+        input.value
     );
 
 
@@ -1397,10 +1849,9 @@ function save(){
 
     JSON.stringify({
 
-      checked:checked,
+      checks,
 
-      targets:
-        reminderValues
+      notes
 
     })
 
@@ -1409,13 +1860,13 @@ function save(){
 }
 
 
-/* ==================================================
+/* =========================================================
    PROGRESS
-================================================== */
+========================================================= */
 
 function updateProgress(){
 
-  const checkboxes =
+  const inputs =
     [
       ...document
         .querySelectorAll(
@@ -1425,20 +1876,22 @@ function updateProgress(){
 
 
   const total =
-    checkboxes.length;
+    inputs.length;
 
 
   const done =
-    checkboxes.filter(
-      checkbox =>
-        checkbox.checked
+    inputs.filter(
+      input =>
+        input.checked
     ).length;
 
 
   const percent =
-    total > 0
+    total
       ? Math.round(
-          done / total * 100
+          done /
+          total *
+          100
         )
       : 0;
 
@@ -1464,16 +1917,17 @@ function updateProgress(){
       'waiting'
     )
     .textContent =
-      sections.filter(
-        section =>
-          section.waiting
-      )
-      .reduce(
-        (sum,section) =>
-          sum +
-          section.tasks.length,
-        0
-      );
+      data
+        .filter(
+          section =>
+            section.waiting
+        )
+        .reduce(
+          (sum,section) =>
+            sum +
+            section.tasks.length,
+          0
+        );
 
 
   document
@@ -1501,89 +1955,83 @@ function updateProgress(){
   if(percent === 0){
 
     message.textContent =
-      'Comece pela primeira estrutura.';
+      'Preparado para largar. Comece pelas estruturas.';
 
   }
 
-  else if(percent < 30){
+  else if(percent < 40){
 
     message.textContent =
-      'Bom começo. Continue nas estruturas.';
+      'Primeira volta concluída. Continue no ritmo.';
 
   }
 
-  else if(percent < 60){
+  else if(percent < 80){
 
     message.textContent =
-      'A produção está avançando.';
-
-  }
-
-  else if(percent < 90){
-
-    message.textContent =
-      'Quase lá. Mantenha o ritmo.';
+      'Boa velocidade. O Midas está avançando.';
 
   }
 
   else if(percent < 100){
 
     message.textContent =
-      'Falta pouco para concluir a lista.';
+      'Última volta. Falta pouco para concluir.';
 
   }
 
   else{
 
     message.textContent =
-      'Produção concluída. Excelente trabalho! ✦';
+      '🏁 Missão concluída. Bandeirada!';
 
   }
 
 }
 
 
-/* ==================================================
-   LEMBRETES
-================================================== */
+/* =========================================================
+   NOTES
+========================================================= */
 
-const targets =
+const notesContainer =
   document.getElementById(
-    'targets'
+    'notes'
   );
 
 
-function createTarget(
-  value = ''
+function createNote(
+  value=''
 ){
 
-  const label =
+  const row =
     document.createElement(
       'label'
     );
 
 
-  label.className =
-    'target';
+  row.className =
+    'note';
 
 
-  label.innerHTML = `
+  row.innerHTML = `
 
     <span>
-      ✦
+      ◆
     </span>
 
+
     <input
-      class="target-input"
+      class="note-input"
       type="text"
-      placeholder="Novo lembrete..."
+      placeholder="Novo recado..."
     >
 
   `;
 
 
   const input =
-    label.querySelector(
+    row.querySelector(
       'input'
     );
 
@@ -1598,59 +2046,58 @@ function createTarget(
   );
 
 
-  targets.appendChild(
-    label
+  notesContainer.appendChild(
+    row
   );
 
 }
 
 
-/* ==================================================
-   LEMBRETES PADRÃO
-================================================== */
+/* =========================================================
+   DEFAULT NOTES
+========================================================= */
 
-const defaultTargets = [
+const defaultNotes = [
 
-  'Texturizar o gato antes de montar o orçamento.',
+  'Finalizar primeiro as 5 estruturas.',
 
-  'Enviar o gato para aprovação do cliente.',
+  'Cobrar referências das armas ao cliente.',
 
-  'Depois da aprovação, enviar orçamento do GATO e dos ANIMAIS.',
-
-  'Alinhar os 107 animais com os meninos.',
-
-  'Cobrar referências das armas ao cliente.'
+  'Não iniciar armas antes das referências.'
 
 ];
 
 
 (
-  saved.targets &&
-  saved.targets.length
-    ? saved.targets
-    : defaultTargets
+  saved.notes &&
+  saved.notes.length
+    ? saved.notes
+    : defaultNotes
 )
 .forEach(
-  createTarget
+  createNote
 );
 
 
-/* ==================================================
-   NOVO LEMBRETE
-================================================== */
+/* =========================================================
+   ADD NOTE
+========================================================= */
 
 document
-  .getElementById('add')
+  .getElementById(
+    'add'
+  )
   .addEventListener(
     'click',
     () => {
 
-      createTarget();
+      createNote();
+
 
       const inputs =
         document
           .querySelectorAll(
-            '.target-input'
+            '.note-input'
           );
 
 
@@ -1665,12 +2112,14 @@ document
   );
 
 
-/* ==================================================
-   DATA
-================================================== */
+/* =========================================================
+   DATE
+========================================================= */
 
 document
-  .getElementById('date')
+  .getElementById(
+    'date'
+  )
   .textContent =
 
   new Intl.DateTimeFormat(
@@ -1686,9 +2135,9 @@ document
   );
 
 
-/* ==================================================
+/* =========================================================
    INIT
-================================================== */
+========================================================= */
 
 updateProgress();
 
